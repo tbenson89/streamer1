@@ -1,22 +1,22 @@
-var port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 const uri = "mongodb+srv://tbenson:fake123@dreamsnthings.mongodb.net/dnt?retryWrites=true&w=majority";
 
-var express 		= require('express'),
-	app 			= express(),
-	bodyParser 		= require("body-parser"), // Let us Read the REQ.
-	passport 		= require("passport"),
-	methodOverride	= require("method-override"), // Method - Override
-	expressSession 	= require("express-session"), 
-	LocalStrategy	= require("passport-local"), // Local Package passport
-	mongoPassport	= require("passport-local-mongoose"), // mongo local passport package
-	mongoose		= require("mongoose"); // DB ODM
+const 	express 		= require('express'),
+		app 			= express(),
+		bodyParser 		= require("body-parser"), // Let us Read the REQ.
+		passport 		= require("passport"),
+		methodOverride	= require("method-override"), // Method - Override
+		expressSession 	= require("express-session"),
+		LocalStrategy	= require("passport-local"), // Local Package passport
+		mongoPassport	= require("passport-local-mongoose"), // mongo local passport package
+		mongoose		= require("mongoose"); // DB ODM
 
-var User  			= require("./models/User"), // The User Model
-	Admin  			= require("./models/Admin"), // The Admin Model
-	Listener  		= require("./models/Listener"), // THe Listener Model
-	Creator 		= require("./models/Creator"), // The Creator Model
-	Track 			= require("./models/Track"), // The Track (Song) Model
-	Album 			= require("./models/Album"); // The Album Model
+const 	User  			= require("./models/User"), // The User Model
+		Admin  			= require("./models/Admin"), // The Admin Model
+		Listener  		= require("./models/Listener"), // THe Listener Model
+		Creator 		= require("./models/Creator"), // The Creator Model
+		Track 			= require("./models/Track"), // The Track (Song) Model
+		Album 			= require("./models/Album"); // The Album Model
 
 //==================|
 // 	    DATABASE
@@ -87,12 +87,12 @@ app.post("/creators" , (req , res) => {
 		}
 	});
 
-	var creatorName 	= req.body.creatorName,
+	let creatorName 	= req.body.creatorName,
 		creatorGenre 	= req.body.creatorGenre,
 		creatorBIO		= req.body.creatorBIO,
 		creatorIMG		= req.body.creatorIMG;
 
-	var newCreator = {creatorName: creatorName, creatorGenre: creatorGenre, creatorBIO: creatorBIO, creatorIMG};
+	let newCreator = {creatorName: creatorName, creatorGenre: creatorGenre, creatorBIO: creatorBIO, creatorIMG};
 
 	console.log("_________");
 	console.log(creatorName);
@@ -116,7 +116,7 @@ app.get("/signup" , (req , res) => {
 });
 
 app.post("/register" , (req , res) => {
-	var newUser = new User(req.body);
+	let newUser = new User(req.body);
 })
 
 /* Login Route */
