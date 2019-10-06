@@ -1,6 +1,5 @@
-# APPLICATION DEVELOPMENT
-	* DreamsNthings 
-		"A Music Production Streaming Platform Dreams N Things"
+# DreamsNthings 
+	* "A Music Production Streaming Platform Dreams N Things"
 
 ## Routes
 * Index/Home
