@@ -1,30 +1,66 @@
 <% include partials/header %>
 <% include partials/topnav %>
-<div class="container">
-  <h1 class="display-4"><strong>Submit Creator (Artist)</strong></h1>
-  <div class="container">
-    <form action="/creators" method="POST" class="container-fluid">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputCName">Creator Name</label>
-          <input type="text" class="form-control" id="inputCName" placeholder="Creator Name" name="creator[creatorName]">
+<!-- LEFT MENU SIDE NAV -->
+<div class="row">
+  <div class="col-md-2 bg-dark">
+    <% include partials/sidebar %>
+  </div><!--  END SIDE NAV -->
+<!-- CREATOR CONTENT -->
+  <div class="col-md-10 bg-dark">
+    <div class="row">
+      <div class="col col-md-3">
+        <div class="card text-white bg-dark">
+          <div class="card-header">
+            <%= Creator.creatorIMG %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= Creator.creatorName %></h5>
+            <p class="card-text">
+              <%= Creator.creatorBIO %>
+            </p>
+          </div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="inputGenre">Genre</label>
-          <input type="text" class="form-control" id="inputGenre" placeholder="Genre" name="creator[creatorGenre]">
+      </div> <!-- END CARD COL-2 -->
+      <div class="col col-md-3">
+        <div class="card text-white bg-dark">
+          <div class="card-header">
+            <%= Creator.creatorIMG %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= Creator.creatorName %></h5>
+            <p class="card-text">
+              <%= Creator.creatorBIO %>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputCreatorBIO">CreatorBIO</label>
-        <input type="text" class="form-control" id="inputCreatorBIO" placeholder="Copy and Paste from Artist Page..." name="creator[creatorBIO]">
-      </div>
-      <div class="form-group">
-        <label for="inputCreatorIMG">CreatorIMG</label>
-        <input type="text" class="form-control" id="inputCreatorIMG" placeholder="Copy and Paste from Artist Page..." name="creator[creatorIMG]">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <p><i>I want this styled better, however let's get the rego route setup and communicating with Mongo!</i></p>
-    </form>
-  </div>
+      </div> <!-- END CARD COL-3 -->
+      <div class="col col-md-3">
+        <div class="card text-white bg-dark">
+          <div class="card-header">
+            <%= creator.creatorIMG %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= Creator.creatorName %></h5>
+            <p class="card-text">
+              <%= creator.creatorBIO %>
+            </p>
+          </div>
+        </div>
+      </div> <!-- END CARD COL-4 -->
+      <div class="col col-md-3">
+        <div class="card text-white bg-dark">
+          <div class="card-header">
+            {{creatorIMG}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= Creator.creatorName %></h5>
+            <p class="card-text">
+              <%= Creator.creatorBIO %>
+            </p>
+          </div>
+        </div>
+      </div> <!-- END CARD COL-1 -->
+    </div> <!-- END ROW -->
+  </div><!-- END CONTENT COLUMN -->
 </div>
 <% include partials/footer %>

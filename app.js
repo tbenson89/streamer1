@@ -1,4 +1,4 @@
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 const uri = "mongodb+srv://tbenson:fake123@dreamsnthings.mongodb.net/dnt?retryWrites=true&w=majority";
 
 const 	express 		= require('express'),
@@ -72,40 +72,17 @@ app.get("/" , (req , res) => {
 	res.render("home");
 });
 
+/*SCRATCHPAD*/
+app.get("/scratchit" , (req , res) => {
+	res.render("scratchpad");
+});
+
 
 //=======================|
 //	Artist Route creator |
 //=======================|
-app.post("/creators" , (req , res) => {
-	console.log("Building a Mongo Creator JSON NODE Collection");
-	Creator.create(req.body.creator , (err , CreatedCreator) =>{
-		if(err){
-			console.log(err);
-			res.render("/");
-		} else {
-			res.redirect("/creators");
-		}
-	});
-
-	let creatorName 	= req.body.creatorName,
-		creatorGenre 	= req.body.creatorGenre,
-		creatorBIO		= req.body.creatorBIO,
-		creatorIMG		= req.body.creatorIMG;
-
-	let newCreator = {creatorName: creatorName, creatorGenre: creatorGenre, creatorBIO: creatorBIO, creatorIMG};
-
-	console.log("_________");
-	console.log(creatorName);
-	console.log(creatorBIO);
-	console.log(creatorIMG);
-	console.log(creatorGenre);
-	console.log("_________");
-
-	res.redirect("/creators/show");
-});
-
-app.get("/creators/show" , (req, res) => {
-	res.render("addCreator");
+app.get("/creators" , (req , res) => {
+	res.render("creators");
 });
 
 
@@ -117,14 +94,12 @@ app.get("/signup" , (req , res) => {
 
 app.post("/register" , (req , res) => {
 	let newUser = new User(req.body);
-})
+});
 
 /* Login Route */
 app.get("/login" , (req , res) => {
 	res.render("login");
 });
-
-
 
 
 
